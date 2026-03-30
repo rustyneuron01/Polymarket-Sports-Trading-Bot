@@ -1,0 +1,10 @@
+# Secrets — never commit
+.env
+
+# Data outputs (optional: remove if you want to track sample data)
+data/polymarket_snapshots/*.jsonl
+data/game_records/*.json
+data/game_outcomes.jsonl
+data/elo_ratings.json
+data/
+__pycache__/
