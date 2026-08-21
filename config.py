@@ -13,6 +13,19 @@ ESPN_SCOREBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/
 ESPN_TEAM_SCHEDULE_URL = "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/teams/{team_id}/schedule"
 ESPN_SUMMARY_URL = "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/summary"
 
+# --- Live Tennis API (optional Tennis sport-specific client; see README "Extending to ... Tennis") ---
+# Live in-match state (sets/games/points/server/break-point/retirement/walkover)
+# for extending the pipeline to Tennis, the way espn_client provides NHL state.
+# Vendor: Live Tennis API (livetennisapi.com), an independent live-tennis data
+# feed. This uses only the free keyed tier (no card; 30 req/min, 100 req/day):
+# https://livetennisapi.com/subscribe/free . It is a DATA source only, never a
+# venue/execution adapter, and stays off unless LIVETENNISAPI_API_KEY is set.
+LIVETENNISAPI_BASE_URL = os.getenv(
+    "LIVETENNISAPI_BASE_URL", "https://api.livetennisapi.com/api/public/v1"
+)
+LIVETENNISAPI_API_KEY = os.getenv("LIVETENNISAPI_API_KEY", "")
+LIVETENNISAPI_TIMEOUT = int(os.getenv("LIVETENNISAPI_TIMEOUT", "15"))
+
 # --- Polymarket ---
 CLOB_HOST = "https://clob.polymarket.com"
 CHAIN_ID = 137
